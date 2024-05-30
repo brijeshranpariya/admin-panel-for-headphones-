@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    .design {
+      width: 100%;
+      color: red;
+      font-size: 13px;
+      text-align: right;
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="d-flex align-items-center" style="height: 100vh;">
+  <form class=" m-auto p-5 shadow p-3 rounded" style="background-color: rgb(243, 243, 243);">
+    <div class="mb-3">
+      <h1 class="text-center">Listen Me</h1>
+      <hr>
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <span class="design">please enter the valid email address</span>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+      <span class="design">Please enter valid password</span>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+    </div>
+    <button type="submit" class="btn btn-primary login">Login</button>
+  </form>
+</body>
+<script>
+  let login = document.querySelector("button");
+  let email = document.querySelector("#exampleInputEmail1");
+  let passwd = document.querySelector("#exampleInputPassword1");
+  let span1 = email.nextElementSibling;
+  let span2 = passwd.nextElementSibling;
+  function validateEmail(elementValue) {
+    var emailPattern = /^[a-zA-Z0-9_\.\-]+\@[a-zA-Z\-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(elementValue);
+  }
+  let passwdex = validatePassword(passwd);
+  function validatePassword(elementValue) {
+    var passPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+    ;
+    return passPattern.test(elementValue);
+  }
+  let emailex = validateEmail(email);
+  email.addEventListener('blur', function (event) {
+    event.preventDefault();
+    if (email.value == "") {
+      span1.style.display = "flex";
+    } else if (emailex == false) {
+      span1.style.display = "flex";
+    }
+  })
+  passwd.addEventListener('blur', function (event) {
+    event.preventDefault();
+    if (passwd.value == "") {
+      span2.style.display = "flex";
+    } else if (passwdex == false) {
+      span2.style.display = "flex";
+    }
+  })
+</script>
+
+</html>

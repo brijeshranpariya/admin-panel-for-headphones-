@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .invalidfeedback {
+            display: none;
+            font-size: 13px;
+            position: absolute;
+            top: 29px;
+            left: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Listen Me</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white" href="index.html">Home</a>
+                    <a class="nav-link text-white" href="bs-listofproduct.html">Products</a>
+                    <a class="nav-link text-white" aria-disabled="true" href="bs-Listofcategories.html">Categories</a>
+                    <a class="nav-link text-white" aria-disabled="true" href="BS-addproduct.html">Add product</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Category</h1>
+                </div>
+                <div class="modal-body">
+                    <h6>Enter Category title</h6>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                        <span class="invalidfeedback text-danger">please enter value</span>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Category</h1>
+                </div>
+                <div class="modal-body">
+                    <h6>Enter New Category Title</h6>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                        <span class="invalidfeedback text-danger">please enter value</span>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card border border-primary ms-2 me-2 mt-5">
+        <div class="card-header">
+            List Of All Categories
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary rounded btn-sm float-end" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                + Add Category
+            </button>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="category-1">circumaural
+                <button type="button" class="btn btn-danger float-end">Delete</button>
+                <button type="button" class="btn btn-warning float-end me-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="circumaural">edit</button>
+            </li>
+            <li class="list-group-item">Earbuds
+                <button type="button" class="btn btn-danger float-end">Delete</button>
+                <button type="button" class="btn btn-warning float-end me-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="Earbuds">edit</button>
+            </li>
+            <li class="list-group-item">Neckbands
+                <button type="button" class="btn btn-danger float-end">Delete</button>
+                <button type="button" class="btn btn-warning float-end me-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="Neckbands">edit</button>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var inputs = document.querySelectorAll(".form-control");
+    for (let a of inputs) {
+        a.addEventListener('blur', function () {
+            if (a.value == '') {
+                let nexttag = a.nextElementSibling;
+                nexttag.style.display = "flex";
+            }
+        })
+    }
+</script>
+
+</html>
